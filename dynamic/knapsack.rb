@@ -5,7 +5,7 @@ class KnapSack
 
   def initialize(weight, value)
     @weight = weight
-    @value = value 
+    @value = value
   end
 
   def to_s
@@ -21,7 +21,7 @@ class KnapsackProblem
     @bags = bags
     @total_weight = total_weight
     @n = bags.length
-    @best_values = Array.new(@n + 1) { Array.new(@total_weight + 1) } 
+    @best_values = Array.new(@n + 1) { Array.new(@total_weight + 1) }
     @best_solutions = Array.new
   end
 
@@ -33,8 +33,8 @@ class KnapsackProblem
 
     puts '给定总称重: ' + @total_weight.to_s
 
-    (0..@total_weight).each do |j| 
-      (0..@n).each do |i| 
+    (0..@total_weight).each do |j|
+      (0..@n).each do |i|
         if i == 0 || j == 0
           @best_values[i][j] = 0
         else
@@ -66,7 +66,7 @@ end
 require "test/unit"
 class TestKnapSack < Test::Unit::TestCase
   def test_solve
-    bags = [KnapSack.new(2, 13), KnapSack.new(1, 10), KnapSack.new(3, 24), KnapSack.new(2, 15), 
+    bags = [KnapSack.new(2, 13), KnapSack.new(1, 10), KnapSack.new(3, 24), KnapSack.new(2, 15),
             KnapSack.new(4, 28), KnapSack.new(5, 33), KnapSack.new(3, 20), KnapSack.new(1, 8)]
     total_weight = 12
     kp = KnapsackProblem.new(bags, total_weight)
@@ -79,7 +79,7 @@ class TestKnapSack < Test::Unit::TestCase
     best_values = kp.best_values
     best_values.each  do |r|
       r.each do |c|
-        printf("%-5d", c) 
+        printf("%-5d", c)
       end
       puts
     end

@@ -5,8 +5,7 @@
 # Note:
 # Given n will always be valid.
 # Try to do this in one pass.
-#
-# Definition for singly-linked list.
+# # Definition for singly-linked list.
 # class ListNode {
 #   int val;
 #   ListNode next;
@@ -16,17 +15,31 @@
 #   }
 # }
 require './list_node'
-def remove_nth_node_from_end_of_list(list, n)
-  len = 1
+def remove_nth(list, n)
+  l = 0
   node = list
-  until node.next.nil?
-    len += 1
+  while l < n
+    l += 1
     node = node.next
   end
-  to_remove = len - n
-  return list.next if to_remove == 0
-
-  node = node.next while to_remove > 0
-  node.next = node.next.next
-  list
+  head = list
+  while node.next.nil?
+    head = head.next
+    node = node.next
+  end
 end
+
+# recursive
+
+def remove_nth2(list, n)
+end
+
+# last node
+list = ListNode.new(10)
+list = ListNode.new(9, list)
+list = ListNode.new(9, list)
+list = ListNode.new(9, list)
+list = ListNode.new(9, list)
+
+remove_nth2(list, 1)
+puts 'a'
